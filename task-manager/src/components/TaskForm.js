@@ -4,7 +4,7 @@ import { TaskListContext } from '../context/TaskListContext'
 const TaskForm = () => {
 
   const { addTask, clearList, editItem, editTask } = useContext(TaskListContext);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
 
   const handleChange = e => {
     setTitle(e.target.value);
@@ -14,7 +14,7 @@ const TaskForm = () => {
     e.preventDefault();
     if (!editItem) {
       addTask(title);
-      setTitle("");
+      setTitle('');
     } else {
       editTask(title, editItem.id);
     }
@@ -25,7 +25,7 @@ const TaskForm = () => {
     if (editItem) {
       setTitle(editItem.title);
     } else {
-      setTitle("");
+      setTitle('');
     }
   }, [editItem])
 
@@ -37,7 +37,7 @@ const TaskForm = () => {
         type="text"
         className="task-input"
         placeholder="Add task..."
-        required></input>
+        required />
       <div className="buttons">
         <button type="submit" className="btn add-task-btn">
           {editItem ? 'edit task' : 'add task'}
